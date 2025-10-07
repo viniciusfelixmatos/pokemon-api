@@ -1,0 +1,148 @@
+:root {
+
+    --water-type-hover: #74ACF5;
+    --water-type: #2980EF;
+    --steel-type-hover: #98C2D1;
+    --steel-type: #60A1B8;
+    --rock-type-hover: #CBC7AD;
+    --rock-type: #B0AA82;
+    --psychic-type-hover: #F584A8;
+    --psychic-type: #EF4179;
+    --poison-type-hover: #B884DD;
+    --poison-type: #9141CB;
+    --normal-type-hover: #C1C2C1;
+    --normal-type: #9FA19F;
+    --ice-type-hover: #81DFF7;
+    --ice-type: #3FD8FF;
+    --ground-type-hover: #B88E6F;
+    --ground-type: #915121;
+    --grass-type-hover: #82C274;
+    --grass-type: #3FA129;
+    --ghost-type-hover: #A284A2;
+    --ghost-type: #704170;
+    --flying-type-hover: #ADD2F5;
+    --flying-type: #81B9EF;
+    --fire-type-hover: #FFAC59;
+    --fire-type: #FF8000;
+    --fighting-type-hover: #EF7374;
+    --fighting-type: #E62829;
+    --fairy-type-hover: #F5A2F5;
+    --fairy-type: #EF70EF;
+    --electric-type-hover: #FCD659;
+    --electric-type: #FAC000;
+    --dragon-type-hover: #8D98EC;
+    --dragon-type: #5060E1;
+    --dark-type-hover: #998B8C;
+    --dark-type: #4F3F3D;
+    --bug-type-hover: #B8C26A;
+    --bug-type: #91A119;
+    --unnamed-color-ffffff: #FFFFFF;
+    --unnamed-color-c9ccc9: #C9CCC9;
+    --unnamed-color-444444: #444444;
+    --unnamed-color-2c2c2c: #2C2C2C;
+    --header-background-color: #F5C632;
+    --favorites: #FC4242;
+    --pokedex-api-font: 'Roboto Condensed', sans-serif;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--pokedex-api-font);
+}
+
+/* HEADER */
+
+.pokedex-header {
+    width: 100%;
+    background-color: var(--header-background-color);
+    height: 3.75rem;
+}
+
+.pokedex-header__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* POKEDEX BODY */
+
+.pokedex-body {
+    margin-top: 3.125rem;
+}
+
+.pokedex-body__filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1.25rem;
+}
+
+.pokedex-body__filters-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1.25rem;
+    max-height: 1.875rem;
+}
+
+.pokedex-body__filters-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+/* Área de pesquia */
+
+.pokedex-body__filters-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border: 1px solid #C9CCC9;
+    border-radius: 0.3125rem;
+}
+
+.pokedex-body__filters-search span {
+    padding: 0.3125rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: bold;
+    border-right: 1px solid #C9CCC9;
+}
+
+.pokedex-body__filters-search input {
+    border: none;
+}
+
+.pokedex-body__filters-search input::placeholder {
+    text-align: left;
+    padding-left: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--unnamed-color-c9ccc9);
+}
+
+/* Área de favoritar */
+
+.pokedex-body__filters-favorites {
+    display: flex;
+    width: 5.3125rem;
+    align-items: center;
+    justify-content: space-evenly;
+    max-height: 1.875rem;
+    padding: 0.3125rem;
+    border: 1px solid #C9CCC9;
+    border-radius: 0.3125rem;
+    text-align: center;
+}
+
+.pokedex-body__filters-favorites span {
+    font-size: 12px;
+    font-weight: bold;
+}
