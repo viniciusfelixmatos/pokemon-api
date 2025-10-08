@@ -74,6 +74,12 @@
     margin-top: 3.125rem;
 }
 
+.pokedex-body__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3.125rem;
+}
+
 .pokedex-body__filters {
     display: flex;
     justify-content: center;
@@ -144,5 +150,90 @@
 
 .pokedex-body__filters-favorites span {
     font-size: 12px;
+    font-weight: bold;
+}
+
+/* Pokedex filters Região e Tipo */
+
+.pokedex-body__filters-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    border: 1px solid #C9CCC9;
+    border-radius: 0.3125rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    min-height: 30px;
+    width: 190px;
+}
+
+.dropdown-toggle {
+    padding: 0 !important;
+    background-color: transparent !important;
+    color: var(--unnamed-color-2c2c2c) !important;
+    font-size: 0.75rem !important;
+    font-weight: bold !important;
+    border: none !important;
+}
+
+.pokedex-body__filters-label {
+    padding: 0.3125rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: bold;
+    border-right: 1px solid #C9CCC9;
+}
+
+.dropdown {
+    align-items: center;
+    justify-content: left;
+    padding-left: 10px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* Pokedex cards */
+
+.pokedex-body__cards-template {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    max-width: 190px;
+    max-height: 272px;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 0px 10px #00000029;
+    border-radius: 0.625rem;
+    padding: 10px;
+}
+
+.pokedex-body__cards-img {
+    height: 160px;
+    width: 160px;
+    background-image: url(../img/tum-tum-sahur.png);
+    background-size: cover;
+}
+
+.pokedex-body__cards-type {
+    display: flex;
+    flex-direction: row;
+}
+
+.pokedex-body__cards-especie {
+    display: flex;
+    flex-direction: row;
+}
+
+.pokedex-body__cards-especie img {
+    height: 24px;
+    width: 24px;
+}
+
+.pokedex-body__cards-info {
+    display: flex;
+    flex-direction: row;
+    font-size: 21px;
     font-weight: bold;
 }

@@ -51,7 +51,7 @@
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
-                            Select type
+                            <span>All</span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><button class="dropdown-item" type="button">Fire</button></li>
@@ -71,7 +71,7 @@
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
-                            Select region
+                            <span>Region</span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><button class="dropdown-item" type="button">Kanto</button></li>
@@ -85,7 +85,27 @@
 
             </section>
             <!-- Seção dos cards -->
-            <section class="pokedex-body__cards" aria-label="Cards da Pokédex"></section>
+            <section class="pokedex-body__cards" aria-label="Cards da Pokédex">
+                <div class="pokedex-body__cards-template">
+                    <div class="pokedex-body__cards-img">
+
+                    </div>
+                    <div class="pokedex-body__cards-info">
+                        <span class="pokemon-span__cards-id">#001</span>
+                        <span class="pokemon-span__cards-name">Tum Tum Sahur</span>
+                    </div>
+                    <div class="pokedex-body__cards-type">
+                        <div class="pokedex-body__cards-especie">
+                            <img src="img/dragon-type-icon.png">
+                            <span>Dragon</span>
+                        </div>
+                        <div class="pokedex-body__cards-especie">
+                            <img src="img/ghost-type-icon.png">
+                            <span>Ghost</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
