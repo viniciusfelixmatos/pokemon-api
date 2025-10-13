@@ -191,9 +191,23 @@
     padding-right: 5rem;
 }
 
-/* Pokedex cards */
+/* POKÉDEX - CARDS */
 
-.pokedex-body__cards-template {
+.pokedex-body__cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.pokedex-body__cards-container .col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pokedex-template,
+.pokedex-card {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -201,17 +215,49 @@
     max-width: 190px;
     max-height: 272px;
     min-height: 272px;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #ffffff;
     box-shadow: 0px 0px 10px #00000029;
     border-radius: 0.625rem;
     padding: 10px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.pokedex-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 .pokedex-body__cards-img {
     height: 160px;
     width: 160px;
-    background-image: url(../img/tum-tum-sahur.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.pokemon-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.pokedex-body__cards-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.3125rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.pokemon-span__cards-id {
+    color: #888;
 }
 
 .pokedex-body__cards-type {
@@ -219,22 +265,24 @@
     flex-direction: row;
     font-weight: bold;
     gap: 0.5rem;
+    justify-content: center;
 }
 
 .pokedex-body__cards-especie {
     display: flex;
     flex-direction: row;
+    align-items: center;
     box-shadow: 0px 0px 10px #00000029;
     border-radius: 1.5rem;
     gap: 0.25rem;
     padding: 4px 8px;
     max-height: 35px;
+    background-color: #f5f5f5;
     transition: all 0.4s;
 }
 
 .pokedex-body__cards-especie:hover {
     transform: scale(1.1);
-    cursor: pointer;
 }
 
 .pokedex-body__cards-especie span {
@@ -249,26 +297,7 @@
     border-radius: 1.5rem;
 }
 
-.pokedex-body__cards-info {
-    display: flex;
-    flex-direction: row;
-    font-size: 1.3125rem;
-    font-weight: bold;
-    gap: 0.5rem;
-}
-
-.pokedex-body__cards .row .col {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-input[type="search"]:focus {
-  outline: none;
-  box-shadow: transparent;
-}
-
+/* Ajustes de responsividade */
 @media (max-width: 768px) {
     .pokedex-body__filters {
         display: flex;
@@ -279,5 +308,9 @@ input[type="search"]:focus {
         justify-content: space-between;
         width: 400px;
         max-width: 400px;
+    }
+
+    .pokedex-body__cards-container {
+        gap: 1rem;
     }
 }
