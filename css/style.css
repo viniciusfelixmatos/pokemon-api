@@ -359,9 +359,40 @@
     width: 50%;
 }
 
+.modal-pokemon__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 100%;
+    width: 50%;
+}
+
 .modal-pokemon__id {
-    font-size: 36px;
+    font-size: 2.25rem;
     font-family: var(--pokedex-api-font);
+}
+
+.modal-pokemon__name {
+    font-size: 2.25rem;
+}
+
+.modal-pokemon__detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 21px;
+}
+
+.modal-pokemon__genetic {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    font-size: 21px;
+}
+
+.modal-pokemon__abilities {
+    font-size: 21px;
 }
 
 @media (max-width: 992px) {

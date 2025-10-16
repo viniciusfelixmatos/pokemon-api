@@ -37,6 +37,7 @@ async function getInfoPoke() {
                 <span>${t.type.name}</span>
             `;
             typeContainer.appendChild(typeDiv);
+            console.log(pokeData);
         });
 
         // Adiciona listener de clique **dentro do loop**
@@ -53,6 +54,18 @@ async function getInfoPoke() {
 
             document.querySelector('.modal-pokemon__height').textContent = pokeData.height / 10;
             document.querySelector('.modal-pokemon__weight').textContent = pokeData.weight / 10;
+
+
+            pokeData.types.forEach((t) => {
+                const typeDiv = document.createElement("div");
+                typeDiv.classList.add("modal-pokedex-especie");
+                typeDiv.innerHTML = `
+                    <img src="img/${t.type.name}-type-icon.png" alt="${t.type.name}">
+                    <span>${t.type.name}</span>               
+                `;
+
+                typeContainer.appendChild(typeDiv);
+            })
 
             pokemonModal.show();
         });
