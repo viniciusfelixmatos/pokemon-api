@@ -96,12 +96,13 @@
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="pokemonModalLabel">Nome do Pokémon</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                         </div>
                         <div class="modal-body text-center">
-                            <div class="modal-pokemon">
-                                <img src="" alt="Imagem do Pokémon" class="modal-pokemon-img mb-3" style="width: 200px; height: 200px;">
+                            <div class="modal-pokemon-container">
+                                <div class="modal-pokemon">
+                                    <img src="" alt="Imagem do Pokémon" class="modal-pokemon-img mb-3" style="width: 200px; height: 200px;">
+                                </div>
                             </div>
                             <div class="modal-pokemon__info">
                                 <div class="modal-pokemon__header">
@@ -109,8 +110,9 @@
                                     <strong class="modal-pokemon__name"></strong>
                                 </div>
                                 <div class="modal-pokemon__detail">
-                                    <strong>Type:</strong> 
-                                    <span class="modal-pokemon__types"></span>
+                                    <strong>Type:</strong>
+                                    <!-- Container para os tipos do Pokémon -->
+                                    <div class="modal-pokemon__types d-flex gap-2 flex-wrap"></div>
                                 </div>
                                 <div class="modal-pokemon__genetic">
                                     <div class="modal-pokemon__detail">

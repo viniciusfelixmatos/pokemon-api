@@ -329,9 +329,25 @@
 
 /* MODAL */
 
+.modal-header {
+    border-bottom: none !important;
+    pointer-events: all;
+    z-index: 5;
+    position: absolute;
+    right: 0;
+}
+
 .modal-content {
     width: 860px;
     height: 440px;
+}
+
+.modal-pokemon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
 }
 
 .modal-body {
@@ -347,16 +363,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 50%;
-}
-
-.modal-pokemon-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 50%;
+    width: 100%;
 }
 
 .modal-pokemon__info {
@@ -366,11 +373,18 @@
     justify-content: space-around;
     height: 100%;
     width: 50%;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 .modal-pokemon__id {
     font-size: 2.25rem;
     font-family: var(--pokedex-api-font);
+    font-weight: bold;
+}
+
+.modal-pokemon__types {
+    cursor: pointer;
 }
 
 .modal-pokemon__name {
@@ -382,6 +396,7 @@
     flex-direction: column;
     align-items: flex-start;
     font-size: 21px;
+    font-weight: bold;
 }
 
 .modal-pokemon__genetic {
@@ -389,10 +404,12 @@
     justify-content: center;
     align-items: baseline;
     font-size: 21px;
+    font-weight: bold;
 }
 
 .modal-pokemon__abilities {
     font-size: 21px;
+    font-weight: bold;
 }
 
 @media (max-width: 992px) {
