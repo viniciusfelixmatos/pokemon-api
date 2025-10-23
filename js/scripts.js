@@ -30,7 +30,7 @@ async function getInfoPoke() {
 
         // NOVO: PEGAR O PRIMEIRO TIPO E APLICAR CLASSE DE COR PRINCIPAL NO CARD
         const mainType = pokeData.types[0].type.name;
-        card.classList.add(`bg-${mainType}-type`); 
+        card.querySelector(".pokemon-span__cards-id").classList.add(`bg-${mainType}-type`); 
         
         // ID FORMATADO
         const id = pokeData.id;
@@ -38,7 +38,7 @@ async function getInfoPoke() {
         const formattedId = `#${id.toString().padStart(3, "0")}`;
 
         // PREENCHE DADOS DO CARD
-        card.querySelector(".pokemon-img").src = pokeData.sprites.front_default;
+        card.querySelector(".pokemon-img").src = pokeData.sprites.other.official-artwork.front_default;
         card.querySelector(".pokemon-span__cards-id").textContent = formattedId;
         card.querySelector(".pokemon-span__cards-name").textContent = capitalizeFirstLetter(pokeData.name);
 
@@ -62,9 +62,11 @@ async function getInfoPoke() {
             // PREENCHE DADOS BÁSICOS DO MODAL
             document.querySelector('.modal-pokemon-img').src = pokeData.sprites.front_default;
             document.querySelector('.modal-pokemon__id').textContent = formattedId;
+            const mainType = pokeData.types[0].type.name;
+            document.querySelector(".modal-pokemon__id").classList.add(`bg-${mainType}-type`);
             document.querySelector('.modal-pokemon__name').textContent = capitalizeFirstLetter(pokeData.name);
 
-            // PREENCHIMENTO DE TIPOS NO MODAL
+            // PREENCHIMENTO DE TIPOS
             const modalTypeContainer = document.querySelector('.modal-pokemon__types');
             modalTypeContainer.innerHTML = "";
             
@@ -78,6 +80,24 @@ async function getInfoPoke() {
                 `;
                 modalTypeContainer.appendChild(typeDiv);
             });
+
+            // PREENCHER ÁREA DE ABILIDADES
+            const modalAbilityContainer = document.querySelector('.pokemon__abilities-container');
+            modalAbilityContainer.innerHTML = ''
+
+
+            pokeData.abilities.forEach((t) => {
+                const abilitiesDiv = document.createElement("div");
+                abilitiesDiv.classList.add("modal-pokemon__info-box");
+
+                abilitiesDiv.innerHTML = `
+                <span>${capitalizeFirstLetter(t.ability.name)}</span>
+                `
+                modalAbilityContainer.appendChild(abilitiesDiv);
+            })
+
+
+
 
             // PREENCHE ALTURA, PESO E BASE EXP.
             document.querySelector('.modal-pokemon__height').textContent = pokeData.height / 10;
