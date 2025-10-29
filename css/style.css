@@ -537,6 +537,45 @@
     }
 }
 
+@media (max-width: 425px) {
+
+    .modal-content {
+        height: auto;
+        max-height: 764px; 
+    }
+    
+    .modal-body {
+        flex-direction: column !important;
+    }
+
+    .modal-pokemon__info {
+        width: 100%;
+        text-align: left;
+        padding: 20px;
+    }
+
+    .modal-header {
+        top: 20px;
+        right: 20px;
+    }
+
+    .modal-pokemon {
+        height: 100%;
+        width: 100%;
+    }
+
+    .modal-pokemon img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .modal-pokemon-container {
+        padding: 20px;
+        width: 100%;
+    }
+
+}
+
 @media (max-width: 320px) {
     .pokedex-body__filters,
     .pokedex-body__filters-inputs,

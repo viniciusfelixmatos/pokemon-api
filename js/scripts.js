@@ -1,6 +1,11 @@
 const url = "https://pokeapi.co/api/v2/pokemon?limit=24";
 const templateCard = document.getElementById('pokedex-template');
 const container = document.querySelector('.pokedex-body__cards-container');
+const filterGroup = document.querySelectorAll('.type-item');
+const filterText = filterGroup.textContent;
+console.log(filterText);
+const filterArray = Array.from(filterGroup);
+const filterinnerArea = document.querySelector('.pokedex-body__filters-dropdown')
 
 // FUNÇÃO PARA CAPITALIZAR A PRIMEIRA LETRA
 function capitalizeFirstLetter(string) {
@@ -9,6 +14,18 @@ function capitalizeFirstLetter(string) {
     }
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+
+filterinnerArea.addEventListener('click', function() {
+
+    console.log(filterArray);
+
+    filterArray.forEach(() => {
+        
+    })
+
+})
+
 
 async function getInfoPoke() {
     const response = await fetch(url);
@@ -38,7 +55,7 @@ async function getInfoPoke() {
         const formattedId = `#${id.toString().padStart(3, "0")}`;
 
         // PREENCHE DADOS DO CARD
-        card.querySelector(".pokemon-img").src = pokeData.sprites.other.official-artwork.front_default;
+        card.querySelector(".pokemon-img").src = pokeData.sprites.other.dream_world.front_default;
         card.querySelector(".pokemon-span__cards-id").textContent = formattedId;
         card.querySelector(".pokemon-span__cards-name").textContent = capitalizeFirstLetter(pokeData.name);
 
@@ -85,7 +102,6 @@ async function getInfoPoke() {
             const modalAbilityContainer = document.querySelector('.pokemon__abilities-container');
             modalAbilityContainer.innerHTML = ''
 
-
             pokeData.abilities.forEach((t) => {
                 const abilitiesDiv = document.createElement("div");
                 abilitiesDiv.classList.add("modal-pokemon__info-box");
@@ -95,9 +111,6 @@ async function getInfoPoke() {
                 `
                 modalAbilityContainer.appendChild(abilitiesDiv);
             })
-
-
-
 
             // PREENCHE ALTURA, PESO E BASE EXP.
             document.querySelector('.modal-pokemon__height').textContent = pokeData.height / 10;
