@@ -41,31 +41,22 @@
 
                 <div class="pokedex-body__filters-inputs">
                     <div class="pokedex-body__filters-group">
-                        <span class="pokedex-body__filters-label">TYPE</span>
-                        <div class="pokedex-body__filters-dropdown dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span>All</span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><button class="dropdown-item type-item" type="button">Fire</button></li>
-                                <li><button class="dropdown-item type-item" type="button">Water</button></li>
-                                <li><button class="dropdown-item type-item" type="button">Grass</button></li>
-                            </ul>
-                        </div>
+                        <span>TYPE</span>
+                        <select name="cars" id="cars" class="pokedex-body__select">
+                            <option value="all" class="select__option-type">All</option>
+                            <option value="fire" class="select__option-type">Fire</option>
+                            <option value="water" class="select__option-type">Water</option>
+                            <option value="grass" class="select__option-type">Grass</option>
+                        </select>
                     </div>
 
                     <div class="pokedex-body__filters-group">
-                        <span class="pokedex-body__filters-label">REGION</span>
-                        <div class="pokedex-body__filters-dropdown dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span>Kanto</span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Kanto</button></li>
-                                <li><button class="dropdown-item" type="button">Johto</button></li>
-                                <li><button class="dropdown-item" type="button">Hoenn</button></li>
-                            </ul>
-                        </div>
+                        <span>REGION</span>
+                        <select name="cars" id="cars" class="pokedex-body__select">
+                            <option value="Kanto" class="select__option-region">Kanto</option>
+                            <option value="Johto" class="select__option-region">Johto</option>
+                            <option value="Hoenn" class="select__option-region">Hoenn</option>
+                        </select>
                     </div>
                 </div>
             </section>
@@ -101,7 +92,7 @@
                         <div class="modal-body text-center">
                             <div class="modal-pokemon-container">
                                 <div class="modal-pokemon">
-                                    <img src="" alt="Imagem do Pokémon" class="modal-pokemon-img mb-3" style="width: 200px; height: 200px;">
+                                    <img src="" alt="Imagem do Pokémon" class="modal-pokemon-img mb-3">
                                 </div>
                             </div>
                             <div class="modal-pokemon__info">

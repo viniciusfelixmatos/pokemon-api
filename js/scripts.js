@@ -1,11 +1,10 @@
-const url = "https://pokeapi.co/api/v2/pokemon?limit=24";
+const url = "https://pokeapi.co/api/v2/pokemon?limit=48";
 const templateCard = document.getElementById('pokedex-template');
 const container = document.querySelector('.pokedex-body__cards-container');
-const filterGroup = document.querySelectorAll('.type-item');
-const filterText = filterGroup.textContent;
-console.log(filterText);
+const filterGroup = document.querySelectorAll('.select__option-type');
+console.log(filterGroup);
 const filterArray = Array.from(filterGroup);
-const filterinnerArea = document.querySelector('.pokedex-body__filters-dropdown')
+const filterinnerArea = document.querySelector('.pokedex-body__select')
 
 // FUNÇÃO PARA CAPITALIZAR A PRIMEIRA LETRA
 function capitalizeFirstLetter(string) {
@@ -14,18 +13,6 @@ function capitalizeFirstLetter(string) {
     }
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-
-filterinnerArea.addEventListener('click', function() {
-
-    console.log(filterArray);
-
-    filterArray.forEach(() => {
-        
-    })
-
-})
-
 
 async function getInfoPoke() {
     const response = await fetch(url);
@@ -77,7 +64,7 @@ async function getInfoPoke() {
             const pokemonModal = new bootstrap.Modal(document.getElementById('pokemonModal'));
             
             // PREENCHE DADOS BÁSICOS DO MODAL
-            document.querySelector('.modal-pokemon-img').src = pokeData.sprites.front_default;
+            document.querySelector('.modal-pokemon-img').src = pokeData.sprites.other.dream_world.front_default;
             document.querySelector('.modal-pokemon__id').textContent = formattedId;
             const mainType = pokeData.types[0].type.name;
             document.querySelector(".modal-pokemon__id").classList.add(`bg-${mainType}-type`);
@@ -123,6 +110,21 @@ async function getInfoPoke() {
 
             pokemonModal.show();
         });
+
+        
+        filterinnerArea.addEventListener('click', function() {
+
+            let valueSelect = filterinnerArea.value;
+
+            async function filterAllPokemons () {
+                
+            }
+
+            filterAllPokemons();
+
+
+        })
+
 
         // Adiciona o card ao container
         container.appendChild(card);
