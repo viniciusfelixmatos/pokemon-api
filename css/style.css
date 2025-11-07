@@ -696,8 +696,8 @@
     }
 
     .modal-header {
-        top: 1.25rem;
-        right: 1.25rem;
+        top: 0;
+        right: 0;
     }
 
     .modal-pokemon-container {
