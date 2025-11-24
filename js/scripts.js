@@ -11,12 +11,22 @@ const pageSize = 12;
 let selectedType = 'all';
 let selectedRegion = 'all';
 
+let favoritePokemons = new Set();
+
+let searchQuery = "";
+
 const loadMoreBtn = document.getElementById('load-more-btn');
 
 async function getInfoPoke() {
 
     // Lógica dos selects customizados
     document.addEventListener("click", function(e) {
+
+        document.getElementById("search-input").addEventListener("input", function () {
+            searchQuery = this.value.trim().toLowerCase();
+            applyFilters();
+        });
+
         const select = e.target.closest(".custom-select"); // Verifica se o clique foi em um select customizado
 
         document.querySelectorAll(".custom-select").forEach(s => {
@@ -64,20 +74,24 @@ function capitalizeFirstLetter(string) {
     if (!string) return '';
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-// Função responsável por filtrar os arrays de Pokémons com base nos filtros selecionados
+
 function filterPokemonArray() {
-    return allPokemonData.filter(pokeData => { // Percorre o array de Pokémons
-
-        // Obtém os tipos e a região do Pokémon e converte para minúsculas
+    return allPokemonData.filter(pokeData => {
         const types = pokeData.types.map(t => t.type.name.toLowerCase());
-        const region = pokeData.region ? pokeData.region.toLowerCase() : 'kanto'; 
-
-        // Verifica se a região é 'all' ou corresponde à região do Pokémon
+        const region = pokeData.region ? pokeData.region.toLowerCase() : 'kanto';
+        
         const typeMatch = selectedType === 'all' || types.includes(selectedType.toLowerCase());
         const regionMatch = selectedRegion === 'all' || region === selectedRegion.toLowerCase();
 
-        // Retorna true se ambos os filtros corresponderem
-        return typeMatch && regionMatch;
+        const name = pokeData.name.toLowerCase();
+        const id = pokeData.id.toString();
+
+        const searchMatch =
+            searchQuery === "" ||
+            name.includes(searchQuery) ||
+            id === searchQuery;
+
+        return typeMatch && regionMatch && searchMatch;
     });
 }
 
@@ -120,6 +134,16 @@ function loadNextBatch(batchSize = pageSize) {
             typeContainer.appendChild(typeDiv);
         });
 
+        const favBtnCard = card.querySelector('.pokemon-fav-card');
+
+        if (favoritePokemons.has(pokeData.id)) {
+            favBtnCard.classList.remove('d-none');
+            favBtnCard.classList.add('favorited');
+        } else {
+            favBtnCard.classList.add('d-none');
+            favBtnCard.classList.remove('favorited');
+        }
+
         card.addEventListener("click", () => {
             const pokemonModal = new bootstrap.Modal(document.getElementById('pokemonModal'));
 
@@ -155,6 +179,28 @@ function loadNextBatch(batchSize = pageSize) {
             const geneticDetails = document.querySelectorAll('.modal-pokemon__genetic .modal-pokemon__detail span');
             if (geneticDetails.length >= 3) geneticDetails[2].textContent = pokeData.base_experience;
 
+            const modalFavBtn = document.querySelector('.pokemon-fav-btn');
+
+            if (favoritePokemons.has(pokeData.id)) {
+                modalFavBtn.classList.add('favorited');
+            } else {
+                modalFavBtn.classList.remove('favorited');
+            }
+
+            modalFavBtn.onclick = () => {
+                const isFav = favoritePokemons.has(pokeData.id);
+
+                if (isFav) {
+                    favoritePokemons.delete(pokeData.id);
+                    modalFavBtn.classList.remove('favorited');
+                } else {
+                    favoritePokemons.add(pokeData.id);
+                    modalFavBtn.classList.add('favorited');
+                }
+
+                updateCardFavoriteState(pokeData.id);
+            };
+
             pokemonModal.show();
         });
 
@@ -169,6 +215,26 @@ function loadNextBatch(batchSize = pageSize) {
         loadMoreBtn.style.display = 'inline-block';
     }
 }
+
+function updateCardFavoriteState(pokeId) {
+    const allCards = document.querySelectorAll('.pokedex-card');
+
+    allCards.forEach(card => {
+        const idText = card.querySelector('.pokemon-span__cards-id').textContent.replace('#', '');
+        const numericId = parseInt(idText);
+
+        const favBtn = card.querySelector('.pokemon-fav-card');
+
+        if (!favBtn) return;
+
+        if (favoritePokemons.has(numericId)) {
+            favBtn.classList.remove('d-none');
+        } else {
+            favBtn.classList.add('d-none');
+        }
+    });
+}
+
 
 loadMoreBtn.addEventListener('click', () => loadNextBatch(pageSize));
 

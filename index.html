@@ -95,22 +95,30 @@
             <!-- Seção dos Cards -->
             <section class="pokedex-body__cards" aria-label="Cards da Pokédex">
                 <div class="row pokedex-body__cards-container">
-
                     <!-- TEMPLATE OCULTO -->
                     <div class="col template" id="pokedex-template" style="display: none;">
-                        <div class="pokedex-body__cards-img">
-                            <img src="" alt="Imagem do Pokémon" class="pokemon-img">
-                        </div>
-                        <div class="pokedex-body__cards-info">
-                            <span class="pokemon-span__cards-id"></span>
-                            <span class="pokemon-span__cards-name"></span>
-                        </div>
-                        <div class="pokedex-body__cards-type"></div>
-                    </div>
 
+                        <div class="pokedex-body__cards-card">
+
+                            <!-- Botão de favorito -->
+                            <button class="pokemon-fav-card d-none" aria-label="Favoritar Pokémon">
+                                <i class="bi bi-heart-fill"></i>
+                            </button>
+
+                            <div class="pokedex-body__cards-img">
+                                <img src="" alt="Imagem do Pokémon" class="pokemon-img">
+                            </div>
+
+                            <div class="pokedex-body__cards-info">
+                                <span class="pokemon-span__cards-id"></span>
+                                <span class="pokemon-span__cards-name"></span>
+                            </div>
+
+                            <div class="pokedex-body__cards-type"></div>
+                        </div>
+                    </div>
                 </div>
             </section>
-
 
             <!-- Modal do Pokémon -->
             <div class="modal fade" id="pokemonModal" tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true">

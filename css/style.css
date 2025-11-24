@@ -245,7 +245,7 @@
     cursor: pointer;
 }
 
-/* POKÉDEX - CARDS */
+/* POKÉDEX – CARDS */
 
 /* TYPES COLORS */
 .bg-grass-type {
@@ -296,6 +296,7 @@
     padding: 0.625rem;
     background-color: var(--unnamed-color-ffffff);
     transition: transform 0.3s ease;
+    position: relative;
 }
 
 .pokedex-card:hover {
@@ -370,6 +371,30 @@
     height: 1.5rem;
     width: 1.5rem;
     border-radius: 1.5rem;
+}
+
+.pokemon-fav-card {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.pokemon-fav-card:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 1);
+}
+
+.pokemon-fav-card i {
+    font-size: 1.2rem;
+    color: var(--favorites);
 }
 
 /* Modal */
@@ -510,14 +535,25 @@
     transition: 0.3s ease;
 }
 
+.pokemon-fav-btn i {
+    font-size: 1.875rem;
+    color: var(--unnamed-color-c9ccc9);
+}
+
+.pokemon-fav-btn.favorited i {
+    color: var(--favorites);
+}
+
 .pokemon-fav-btn:hover {
     background: rgba(255, 255, 255, 1);
     transform: scale(1.1);
 }
 
-.pokemon-fav-btn i {
-    font-size: 1.875rem;
-    color: var(--unnamed-color-c9ccc9);
+.btn-close {
+    transition: 0.5s ease !important;
+    border-radius: 50% !important;
+    background-color: var(--normal-type) !important;
+    --bs-btn-close-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M.293 1.293a1 1 0 0 1 1.414 0L8 7.586l6.293-6.293a1 1 0 1 1 1.414 1.414L9.414 9l6.293 6.293a1 1 0 0 1-1.414 1.414L8 10.414l-6.293 6.293A1 1 0 0 1 .293 15.293L6.586 9 .293 2.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") !important;
 }
 
 /* Botão mostrar mais */
