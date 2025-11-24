@@ -15,6 +15,25 @@ let favoritePokemons = new Set();
 
 let searchQuery = "";
 
+let showOnlyFavorites = false;
+
+const favFilterBtn = document.querySelector('.pokedex-body__filters-favorites');
+const favFilterIcon = favFilterBtn.querySelector('i');
+
+favFilterBtn.addEventListener('click', () => {
+    favFilterBtn.classList.toggle('active');
+
+    if (favFilterBtn.classList.contains('active')) {
+        favFilterIcon.classList.replace('bi-heart', 'bi-heart-fill');
+        showOnlyFavorites = true;
+    } else {
+        favFilterIcon.classList.replace('bi-heart-fill', 'bi-heart');
+        showOnlyFavorites = false;
+    }
+
+    applyFilters();
+});
+
 const loadMoreBtn = document.getElementById('load-more-btn');
 
 async function getInfoPoke() {
@@ -91,7 +110,10 @@ function filterPokemonArray() {
             name.includes(searchQuery) ||
             id === searchQuery;
 
-        return typeMatch && regionMatch && searchMatch;
+        const favoritesMatch =
+            !showOnlyFavorites || favoritePokemons.has(pokeData.id);
+
+        return typeMatch && regionMatch && searchMatch && favoritesMatch;
     });
 }
 
